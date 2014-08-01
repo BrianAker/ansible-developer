@@ -1,26 +1,23 @@
 # vim:ft=make
 #
-_bootstrap_Makefile := $(wildcard aux)
-_bootstrap_aux := $(wildcard aux)
+_bootstrap_Makefile := $(wildcard Makefile)
 
 .SUFFIXES:
 .NOTPARALLEL:
 srcdir= .
-PROJECT=basename $(pwd)
+PROJECT= $(shell basename `pwd`)
 
 ifneq ($(_bootstrap_Makefile),)
-  git clone git@github.com:BrianAker/$(PROJECT) .
-endif
-
-ifneq ($(_bootstrap_aux),)
   include Makefile
 else
 .DEFAULT_GOAL:= basic_build
-aux/README.md:
+
+Makefile:
+	git clone git@github.com:BrianAker/$(PROJECT) .
 	git submodule init
 
 .PHONY: basic_build
-basic_build: aux/README.md
+basic_build: Makefile
 	@$(MAKE) $(AM_MAKEFLAGS)
 endif
 
