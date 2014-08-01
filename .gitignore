@@ -2,6 +2,5 @@
 *.dirstamp
 *.swp
 *.ansible
-aux
 GNUmakefile
 .inventory/localhost

@@ -1,0 +1,3 @@
+[submodule "aux"]
+	path = aux
+	url = git@github.com:BrianAker/aux.git
