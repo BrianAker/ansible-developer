@@ -15,6 +15,7 @@ else
 Makefile:
 	git clone git@github.com:BrianAker/$(PROJECT) .
 	git submodule init
+	git submodule update
 
 .PHONY: basic_build
 basic_build: Makefile
